@@ -89,4 +89,4 @@ Add the Post Blocks widget to that sidebar.
 
 == Upgrade Notice ==
 
-N/A
+v0.0.3 fixes the CSS not saving on the config page
