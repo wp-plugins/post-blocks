@@ -40,12 +40,12 @@ function post_blocks_menu() {
 
 function post_blocks_options() {
   $pb_options = get_option('widget_post_blocks');
+  $pb_options_to_update = array('post_blocks_css','post_blocks_future_posts')
  ?>
 <div class="wrap">
   <h2>Post Blocks</h2>
   <form method="post" action="options.php"><input type="hidden" name="action" value="update" />
-  <input type="hidden" name="page_options" value="post_blocks_css" />
-  <input type="hidden" name="page_options" value="post_blocks_future_posts" />
+  <input type="hidden" name="page_options" value="<?php echo esc_attr( implode( ',', $pb_options_to_update ) ); ?>" />
   <?php wp_nonce_field('update-options'); ?>
   <table class="form-table">
    <tr valign="top">
