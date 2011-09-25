@@ -3,8 +3,8 @@ Contributors: Jeremy Tompkins
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FSUVY53M35HTY
 Tags: post,widgets,post blocks
 Requires at least: 3.1
-Tested up to: 3.1
-Stable tag: 0.0.2
+Tested up to: 3.2.1
+Stable tag: 0.0.3
 
 Post Blocks extends the basic WordPress functionality to enable posts to be listed anywhere you can put a widget.
 
@@ -74,6 +74,9 @@ Add the Post Blocks widget to that sidebar.
 
 
 == Changelog == 
+
+= v0.0.3 - 9.25.2011 =
+* FIX : Saving the CSS on the config page
 
 = v0.0.2 - 9.25.2011 =
 * NEW : Added Admin config menu
