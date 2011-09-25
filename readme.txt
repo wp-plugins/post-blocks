@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: post,widgets,post blocks
 Requires at least: 3.1
 Tested up to: 3.1
-Stable tag: trunk
+Stable tag: 0.0.2
 
 Post Blocks extends the basic WordPress functionality to enable posts to be listed anywhere you can put a widget.
 
@@ -54,16 +54,31 @@ For commercial use please donate.
 
 1. Screenshot Widget Display 
 2. Screenshot Widget Options
+3. Screenshot Settings
 
 
 == Frequently Asked Questions ==
 
 = Can I turn off future posts? =
 
-This feature is coming in a future release, for now the future posts was a requirement for the site the plugin was developed for.
+Yes, from the admin config menu
+
+= Can I update the CSS? =
+
+Yes, from the admin config menu
+
+= How do I add Post Blocks to my page? =
+
+Add a sidebar to your template where you want the post blocks to be.
+Add the Post Blocks widget to that sidebar.
 
 
 == Changelog == 
+
+= v0.0.2 - 9.25.2011 =
+* NEW : Added Admin config menu
+* NEW : Added CSS to admin config menu
+* NEW : Added future posts toggle to admin config menu
 
 = V0.0.1 - 9.11.2011 =
 * NEW : Created Post Blocks Plugin

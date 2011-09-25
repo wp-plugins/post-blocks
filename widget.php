@@ -8,16 +8,20 @@ function widget_post_blocks_register() {
 	function widget_post_blocks($args) {
 		extract($args);
 		$pb_options = get_option('widget_post_blocks');
-		$pb_r = new WP_Query(array('posts_per_page' => $pb_options['number'] , 'nopaging' => 0, 'post_status' => 'publish', 'ignore_sticky_posts' => true));
+		if(bool_from_yn(get_option("post_blocks_future_posts"))){
+		  $pb_r = new WP_Query(array('posts_per_page' => $pb_options['number'] , 'nopaging' => 0, 'post_status' => array('future','publish'), 'ignore_sticky_posts' => true));
+		}else{
+		  $pb_r = new WP_Query(array('posts_per_page' => $pb_options['number'] , 'nopaging' => 0, 'post_status' => 'publish', 'ignore_sticky_posts' => true));
+		}
 		if ($pb_r->have_posts()) :
 ?>
 		<?php echo $before_widget; ?>
 		<?php if (  $pb_options['title'] ) echo $before_title .  $pb_options['title'] . $after_title; ?>
 		<ul id="posts">
-		<?php  while ($pb_r->have_posts()) : $pb_r->the_post(); $pb_date = get_the_date(); global $post; 
+		<?php  while ($pb_r->have_posts()) : $pb_r->the_post(); $pb_date = get_the_date(); global $post;
 		if($pb_options['titlemax'] > 0 && ( get_the_title() )){ $pb_title = str_split(html_entity_decode($post->post_title),$pb_options['titlemax']); }
 		?>
-		<li>
+		<li id="post-<?php the_ID(); ?>">
 		<div class='datetime'>
 		<?php echo date('n/j', strtotime($pb_date)); ?><br />
 		<?php echo date('Y', strtotime($pb_date)); ?>
@@ -46,14 +50,14 @@ function widget_post_blocks_register() {
 <style type="text/css">
 #post_blocks .post_blocks_post { width: <?php echo absint($pb_options['pwidth']); ?>px; }
 #post_blocks .datetime { width: <?php echo absint($pb_options['dwidth']); ?>px;}
-#post_blocks, #post_blocks ul { margin: 0; padding: 1px; }
+<?php echo (get_option("post_blocks_css")) ? get_option("post_blocks_css") : "#post_blocks, #post_blocks ul { margin: 0; padding: 1px; }
 #post_blocks ul li { display: table;  border: 1px solid #c0c0c0; border-radius: 3px 3px 3px 3px; float:relative; float: left; margin: 5px; }
 #post_blocks .post_blocks_post { display: table-cell; color:#000;font:1em 'Georgia','Myriad Pro',sans-serif;height:40px;line-height:100%;overflow:hidden;padding:5px;text-align:left; vertical-align: top; }
 #post_blocks .post_blocks_post h3 { padding-bottom: 3px; margin: 0px; }
 #post_blocks .post_blocks_post a { color:#000; text-decoration: none; font-weight: bold; }
 #post_blocks .post_blocks_post a:hover { text-decoration: underline; }
 #post_blocks .datetime { display: table-cell; background: #c0c0c0; color: #919191; padding: 5px; margin: 0 !important; font:2em 'Georgia','Myriad Pro',sans-serif; text-align:center; text-shadow: 1px 1px #D3D3D3, -1px -1px #6E6E6E;}
-#post_blocks .monthday, #post_blocks .year{ display: block; }
+#post_blocks .monthday, #post_blocks .year{ display: block; }"; ?>
 </style>
 		<?php
 	}
