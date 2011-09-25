@@ -54,13 +54,23 @@ For commercial use please donate.
 
 1. Screenshot Widget Display 
 2. Screenshot Widget Options
+3. Screenshot Settings
 
 
 == Frequently Asked Questions ==
 
 = Can I turn off future posts? =
 
-This feature is coming in a future release, for now the future posts was a requirement for the site the plugin was developed for.
+Yes, from the admin config menu
+
+= Can I update the CSS? =
+
+Yes, from the admin config menu
+
+= How do I add Post Blocks to my page? =
+
+Add a sidebar to your template where you want the post blocks to be.
+Add the Post Blocks widget to that sidebar.
 
 
 == Changelog == 
