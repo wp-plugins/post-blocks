@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: post,widgets,post blocks
 Requires at least: 3.1
 Tested up to: 3.2.1
-Stable tag: 0.0.3
+Stable tag: 0.0.4
 
 Post Blocks extends the basic WordPress functionality to enable posts to be listed anywhere you can put a widget.
 
@@ -72,8 +72,14 @@ Yes, from the admin config menu
 Add a sidebar to your template where you want the post blocks to be.
 Add the Post Blocks widget to that sidebar.
 
+= Can I disable the CSS? =
+
+Yes, from the admin config menu
 
 == Changelog == 
+
+= v0.0.4 - 9.26.2011 =
+* NEW : Added option to disable the plugins CSS to the admin menu
 
 = v0.0.3 - 9.25.2011 =
 * FIX : Saving the CSS on the config page
@@ -89,4 +95,5 @@ Add the Post Blocks widget to that sidebar.
 
 == Upgrade Notice ==
 
+v0.0.4 adds the ability to turn off the plugins css
 v0.0.3 fixes the CSS not saving on the config page

@@ -40,7 +40,7 @@ function post_blocks_menu() {
 
 function post_blocks_options() {
   $pb_options = get_option('widget_post_blocks');
-  $pb_options_to_update = array('post_blocks_css','post_blocks_future_posts')
+  $pb_options_to_update = array('post_blocks_css','post_blocks_future_posts','post_blocks_remove_css')
  ?>
 <div class="wrap">
   <h2>Post Blocks</h2>
@@ -49,7 +49,7 @@ function post_blocks_options() {
   <?php wp_nonce_field('update-options'); ?>
   <table class="form-table">
    <tr valign="top">
-    <th scope="row">CSS</th>
+    <th scope="row" rowspan="2">CSS</th>
     <td>&lt;style&gt;<br>
     #post_blocks .post_blocks_post { width: <?php echo absint($pb_options['pwidth']); ?>px; }<br>
     #post_blocks .datetime { width: <?php echo absint($pb_options['dwidth']); ?>px;}<br>
@@ -61,6 +61,11 @@ function post_blocks_options() {
 #post_blocks .post_blocks_post a:hover { text-decoration: underline; }
 #post_blocks .datetime { display: table-cell; background: #c0c0c0; color: #919191; padding: 5px; margin: 0 !important; font:2em 'Georgia','Myriad Pro',sans-serif; text-align:center; text-shadow: 1px 1px #D3D3D3, -1px -1px #6E6E6E;}
 #post_blocks .monthday, #post_blocks .year{ display: block; }"; ?></textarea>&lt;/style&gt;</td>
+   </tr>
+   <tr valign="top">
+    <td>
+    <input type="checkbox" value="y" id="post_blocks_remove_css" name="post_blocks_remove_css"<?php echo get_option("post_blocks_remove_css") ? " checked='checked' " : " " ?>/><label for="post_blocks_remove_css">Disable CSS?</label>
+    </td>
    </tr>
    <tr valign="top">
     <th scope="row">Future Posts</th>

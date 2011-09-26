@@ -43,9 +43,8 @@ function widget_post_blocks_register() {
 	function widget_post_blocks_style() {
 		$pb_plugin_dir = '/wp-content/plugins';
 		$pb_options = get_option('widget_post_blocks');
-		if ( defined( 'PLUGINDIR' ) )
-			$pb_plugin_dir = '/' . PLUGINDIR;
-
+		if ( defined( 'PLUGINDIR' ) ) $pb_plugin_dir = '/' . PLUGINDIR;
+		if(!bool_from_yn(get_option("post_blocks_remove_css"))){
 		?>
 <style type="text/css">
 #post_blocks .post_blocks_post { width: <?php echo absint($pb_options['pwidth']); ?>px; }
@@ -60,6 +59,7 @@ function widget_post_blocks_register() {
 #post_blocks .monthday, #post_blocks .year{ display: block; }"; ?>
 </style>
 		<?php
+		}
 	}
 
 	function widget_post_blocks_control() {
