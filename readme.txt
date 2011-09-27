@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: post,widgets,post blocks
 Requires at least: 3.1
 Tested up to: 3.2.1
-Stable tag: 0.0.4
+Stable tag: trunk
 
 Post Blocks extends the basic WordPress functionality to enable posts to be listed anywhere you can put a widget.
 
