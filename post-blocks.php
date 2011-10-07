@@ -3,7 +3,7 @@
 Plugin Name: Post Blocks
 Plugin URI: http://wordpress.org/extend/plugins/post-blocks/
 Description: Extends the basic WordPress functionality to enable posts to be listed anywhere you can put a widget.
-Version: 0.0.2
+Version: 0.0.4
 Author: Jeremy Tompkins
 Author URI: http://www.exec-tools.com/
 Copyright: 2011, Jeremy Tompkins, Exec Tools
