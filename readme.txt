@@ -6,11 +6,11 @@ Requires at least: 3.1
 Tested up to: 3.2.1
 Stable tag: 0.0.5
 
-Post Blocks extends the basic WordPress functionality to enable posts to be listed anywhere you can put a widget.
+Post Blocks extends the basic WordPress functionality to enable posts to be listed anywhere you can put a widget. Limit the number of posts displayed by count or category.  Turn display of future posts on/off from the settings menu.
 
 == Description ==
 
-Post Blocks extends the basic WordPress functionality to enable posts to be listed anywhere you can put a widget.
+Post Blocks extends the basic WordPress functionality to enable posts to be listed anywhere you can put a widget. Limit the number of posts displayed by count or category.  Turn display of future posts on/off from the settings menu.
 
 [Demonstration](http://www.hollistersdachurch.org/)
 
