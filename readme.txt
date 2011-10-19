@@ -14,6 +14,12 @@ Post Blocks extends the basic WordPress functionality to enable posts to be list
 
 [Demonstration](http://www.hollistersdachurch.org/)
 
+= v0.0.5 - 2011-10-18 =
+* NEW : Added option to choose a post category in the widget config menu
+* NEW : Added ability to customize the date format to the settings menu
+* NEW : Added ability to turn off date lines in the settings menu
+
+
 = Features =
 
 * Sidebar Widget : Show posts in a block, control the number of posts and how much text is displayed 
@@ -84,6 +90,8 @@ Yes, from the widget config menu.
 
 = v0.0.5 - 2011-10-18 =
 * NEW : Added option to choose a post category in the widget config menu
+* NEW : Added ability to customize the date format to the settings menu
+* NEW : Added ability to turn off date lines in the settings menu
 
 = v0.0.4 - 2011-09-26 =
 * NEW : Added option to disable the plugins CSS to the admin menu
