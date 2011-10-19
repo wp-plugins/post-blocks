@@ -4,13 +4,13 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: post,widgets,post blocks
 Requires at least: 3.1
 Tested up to: 3.2.1
-Stable tag: 0.0.4
+Stable tag: 0.0.5
 
-Post Blocks extends the basic WordPress functionality to enable posts to be listed anywhere you can put a widget.
+Post Blocks extends the basic WordPress functionality to enable posts to be listed anywhere you can put a widget. Limit the number of posts displayed by count or category.  Turn display of future posts on/off from the settings menu.
 
 == Description ==
 
-Post Blocks extends the basic WordPress functionality to enable posts to be listed anywhere you can put a widget.
+Post Blocks extends the basic WordPress functionality to enable posts to be listed anywhere you can put a widget. Limit the number of posts displayed by count or category.  Turn display of future posts on/off from the settings menu.
 
 [Demonstration](http://www.hollistersdachurch.org/)
 
@@ -61,11 +61,11 @@ For commercial use please donate.
 
 = Can I turn off future posts? =
 
-Yes, from the admin config menu
+Yes, from the admin config menu.
 
 = Can I update the CSS? =
 
-Yes, from the admin config menu
+Yes, from the admin config menu.
 
 = How do I add Post Blocks to my page? =
 
@@ -74,26 +74,34 @@ Add the Post Blocks widget to that sidebar.
 
 = Can I disable the CSS? =
 
-Yes, from the admin config menu
+Yes, from the admin config menu.
+
+= Can I choose a category of posts to display? =
+
+Yes, from the widget config menu.
 
 == Changelog == 
 
-= v0.0.4 - 9.26.2011 =
+= v0.0.5 - 2011-10-18 =
+* NEW : Added option to choose a post category in the widget config menu
+
+= v0.0.4 - 2011-09-26 =
 * NEW : Added option to disable the plugins CSS to the admin menu
 
-= v0.0.3 - 9.25.2011 =
+= v0.0.3 - 2011-09-25 =
 * FIX : Saving the CSS on the config page
 
-= v0.0.2 - 9.25.2011 =
+= v0.0.2 - 2011-09-25 =
 * NEW : Added Admin config menu
 * NEW : Added CSS to admin config menu
 * NEW : Added future posts toggle to admin config menu
 
-= V0.0.1 - 9.11.2011 =
+= V0.0.1 - 2011-09-11 =
 * NEW : Created Post Blocks Plugin
 
 
 == Upgrade Notice ==
 
+v0.0.5 Adds the ability to choose a post category
 v0.0.4 adds the ability to turn off the plugins css
 v0.0.3 fixes the CSS not saving on the config page

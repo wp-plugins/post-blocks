@@ -7,12 +7,11 @@ function widget_post_blocks_register() {
 	if ( function_exists('register_sidebar_widget') ) :
 	function widget_post_blocks($args) {
 		extract($args);
-		$pb_options = get_option('widget_post_blocks');
-		if(bool_from_yn(get_option("post_blocks_future_posts"))){
-		  $pb_r = new WP_Query(array('posts_per_page' => $pb_options['number'] , 'nopaging' => 0, 'post_status' => array('future','publish'), 'ignore_sticky_posts' => true));
-		}else{
-		  $pb_r = new WP_Query(array('posts_per_page' => $pb_options['number'] , 'nopaging' => 0, 'post_status' => 'publish', 'ignore_sticky_posts' => true));
-		}
+		$pb_options   = get_option('widget_post_blocks');
+		$pb_category  = ($pb_options['category']) ? array('cat'=>$pb_options['category']) : array();
+		$pb_status    = (bool_from_yn(get_option("post_blocks_future_posts"))) ? array('future','publish') : array('publish');
+		$pb_post_args = array_merge(array('posts_per_page' => $pb_options['number'] , 'nopaging' => 0, 'post_status' => $pb_status, 'ignore_sticky_posts' => true),$pb_category);
+        $pb_r = new WP_Query($pb_post_args);
 		if ($pb_r->have_posts()) :
 ?>
 		<?php echo $before_widget; ?>
@@ -23,8 +22,8 @@ function widget_post_blocks_register() {
 		?>
 		<li id="post-<?php the_ID(); ?>">
 		<div class='datetime'>
-		<?php echo date('n/j', strtotime($pb_date)); ?><br />
-		<?php echo date('Y', strtotime($pb_date)); ?>
+		<?php if(!bool_from_yn(get_option("post_blocks_date_one_inactive"))){ echo date(get_option("post_blocks_date_one"), strtotime($pb_date)); ?><br /><?php } ?>
+		<?php if(!bool_from_yn(get_option("post_blocks_date_two_inactive"))){ echo date(get_option("post_blocks_date_two"), strtotime($pb_date)); } ?>
 		</div>
 		<div class="post_blocks_post">
 		<h3><a href="<?php the_permalink() ?>" title="<?php echo esc_attr(get_the_title() ? get_the_title() : get_the_ID()); ?>"><?php if ( get_the_title() ) ($pb_options['titlemax'] > 0 && count($pb_title) > 1) ? print esc_attr($pb_title[0])."...": the_title(); else the_ID(); ?></a></h3>
@@ -71,6 +70,7 @@ function widget_post_blocks_register() {
 			$pb_newoptions['pwidth'] = absint(strip_tags(stripslashes($_POST["post_blocks-pwidth"])));
 			$pb_newoptions['titlemax'] = absint(strip_tags(stripslashes($_POST["post_blocks-titlemax"])));
 			$pb_newoptions['contentmax'] = absint(strip_tags(stripslashes($_POST["post_blocks-contentmax"])));
+			$pb_newoptions['category'] = absint(strip_tags(stripslashes($_POST["post_blocks-category"])));
 			if ( empty($pb_newoptions['title']) ) $pb_newoptions['title'] = __('Posts');
 			if ( empty($pb_newoptions['number']) ) $pb_newoptions['number'] = 4;
 			if ( empty($pb_newoptions['dwidth']) ) $pb_newoptions['dwidth'] = 60;
@@ -88,19 +88,22 @@ function widget_post_blocks_register() {
 		$pb_pwidth = htmlspecialchars($pb_options['pwidth'], ENT_QUOTES);
 		$pb_titlemax = htmlspecialchars($pb_options['titlemax'], ENT_QUOTES);
 		$pb_contentmax = htmlspecialchars($pb_options['contentmax'], ENT_QUOTES);
+		$pb_category = htmlspecialchars($pb_options['category'], ENT_QUOTES);
     ?>
 				<p><label for="post_blocks-title"><?php _e('Title:'); ?></label>
 				<input class="widefat" id="post_blocks-title" name="post_blocks-title" type="text" value="<?php echo $pb_title; ?>" /></p>
 				<p><label for="post_blocks-number"><?php _e('Number of posts to show:'); ?></label>
 				<input class="widefat" id="post_blocks-number" name="post_blocks-number" type="text" value="<?php echo $pb_number; ?>"  size="3" /></p>
-				<p><label for="post_blocks-width"><?php _e('Date Block Width(pixels):'); ?></label>
+				<p><label for="post_blocks-dwidth"><?php _e('Date Block Width(pixels):'); ?></label>
 				<input class="widefat" id="post_blocks-dwidth" name="post_blocks-dwidth" type="text" value="<?php echo $pb_dwidth; ?>"  size="3" /></p>
-				<p><label for="post_blocks-width"><?php _e('Post Block Width(pixels):'); ?></label>
+				<p><label for="post_blocks-pwidth"><?php _e('Post Block Width(pixels):'); ?></label>
 				<input class="widefat" id="post_blocks-pwidth" name="post_blocks-pwidth" type="text" value="<?php echo $pb_pwidth; ?>"  size="3" /></p>
-				<p><label for="post_blocks-width"><?php _e('Post Title Max(# Characters)(0 for all):'); ?></label>
+				<p><label for="post_blocks-titlemax"><?php _e('Post Title Max(# Characters)(0 for all):'); ?></label>
 				<input class="widefat" id="post_blocks-titlemax" name="post_blocks-titlemax" type="text" value="<?php echo $pb_titlemax; ?>"  size="3" /></p>
-				<p><label for="post_blocks-width"><?php _e('Post Content Max(# Characters)(0 for all):'); ?></label>
+				<p><label for="post_blocks-contentmax"><?php _e('Post Content Max(# Characters)(0 for all):'); ?></label>
 				<input class="widefat" id="post_blocks-contentmax" name="post_blocks-contentmax" type="text" value="<?php echo $pb_contentmax; ?>"  size="3" /></p>
+				<p><label for="post_blocks-category"><?php _e('Post Category:'); ?></label>
+				<?php wp_dropdown_categories(array('hide_empty' => 1, 'name' => 'post_blocks-category', 'orderby' => 'name', 'selected' => $pb_category, 'hierarchical' => true, 'class' => 'widefat', 'show_option_all' => __('All Categories'))); ?>
 				<input type="hidden" id="post_blocks-submit" name="post_blocks-submit" value="1" />
 	<?php
 	}
