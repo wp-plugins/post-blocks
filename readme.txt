@@ -3,7 +3,7 @@ Contributors: Jeremy Tompkins
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FSUVY53M35HTY
 Tags: post,widgets,post blocks
 Requires at least: 3.1
-Tested up to: 3.2.1
+Tested up to: 3.3.1
 Stable tag: 0.0.5
 
 Post Blocks extends the basic WordPress functionality to enable posts to be listed anywhere you can put a widget. Limit the number of posts displayed by count or category.  Turn display of future posts on/off from the settings menu.
